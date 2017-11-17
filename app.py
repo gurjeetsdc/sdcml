@@ -1,5 +1,5 @@
 # import the Flask class from the flask module
-from sdcPredictor import SdcPredictor
+# from sdcPredictor import SdcPredictor
 import io
 import requests
 
