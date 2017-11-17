@@ -13,9 +13,9 @@ app = Flask(__name__)
 # use decorators to link the function to a url
 @app.route('/')
 def home():	
-	url     = "https://raw.githubusercontent.com/gurjeetsdc/sdcml/master/data/Position_Salaries.csv"
-	s       = requests.get(url).content
-	return s
+	# url     = "https://raw.githubusercontent.com/gurjeetsdc/sdcml/master/data/Position_Salaries.csv"
+	# s       = requests.get(url).content
+	return "Hello"
 	#print(s)
 	#return render_template('welcome.html')  # render a template
 
