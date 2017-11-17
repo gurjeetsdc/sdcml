@@ -29,6 +29,7 @@ class SdcPredictor(object):
 
 		url     = "https://raw.githubusercontent.com/gurjeetsdc/sdcml/master/data/Position_Salaries.csv"
 		s       = requests.get(url).content
+		print(s)
 		dataset = pd.read_csv(io.StringIO(s.decode('utf-8')))
 		#dataset = pd.read_csv("https://github.com/gurjeetsdc/sdcml/blob/master/data/Position_Salaries.csv")
 

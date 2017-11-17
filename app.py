@@ -1,16 +1,23 @@
 # import the Flask class from the flask module
 from sdcPredictor import SdcPredictor
+import io
+import requests
+
 from flask import Flask, render_template, request
 
 # create the application object
 app = Flask(__name__)
 
-sp = SdcPredictor()
+# sp = SdcPredictor()
 
 # use decorators to link the function to a url
 @app.route('/')
 def home():	
-	return render_template('welcome.html')  # render a template
+	url     = "https://raw.githubusercontent.com/gurjeetsdc/sdcml/master/data/Position_Salaries.csv"
+	s       = requests.get(url).content
+	return s
+	#print(s)
+	#return render_template('welcome.html')  # render a template
 
 @app.route('/welcome')
 def welcome():
@@ -19,8 +26,8 @@ def welcome():
 
 @app.route('/process', methods=['post'])
 def process():
-	exp = request.form.get("exp")
-	result = sp.predict(exp)
+	# exp = request.form.get("exp")
+	# result = sp.predict(exp)
 	return '<h2>Estimated Salary is calculated as: %.2f</h2>' %(result[0])
 
 # start the server with the 'run()' method
